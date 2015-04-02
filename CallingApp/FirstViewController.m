@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 
 @interface FirstViewController ()
+@property (strong, nonatomic) IBOutlet UINavigationBar *navigBar;
 
 @end
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigBar.topItem.title = @"";
     // Do any additional setup after loading the view, typically from a nib.
 }
 
