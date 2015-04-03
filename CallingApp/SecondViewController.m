@@ -7,13 +7,26 @@
 //
 
 #import "SecondViewController.h"
+#import "MyTableViewCell.h"
 
-@interface SecondViewController () 
+@interface SecondViewController () <UITableViewDataSource, UITableViewDelegate>
 @property NSArray *list;
 @end
 
 @implementation SecondViewController
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.list count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *CellID = @"Cell2ID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+    
+    cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
+    return cell;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

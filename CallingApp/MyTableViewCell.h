@@ -10,9 +10,9 @@
 #import "Person.h"
 
 @interface MyTableViewCell : UITableViewCell 
-@property (weak, nonatomic) IBOutlet UILabel *firstName;
-@property (weak, nonatomic) IBOutlet UILabel *lastName;
-@property (weak, nonatomic) IBOutlet UILabel *number;
+@property (strong, nonatomic) IBOutlet UILabel *firstName;
+@property (strong, nonatomic) IBOutlet UILabel *lastName;
+@property (strong, nonatomic) IBOutlet UILabel *number;
 
 -(void)setPerson:(Person*)p;
 
