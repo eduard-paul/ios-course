@@ -15,10 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *number;
 
 -(void)setPerson:(Person*)p;
-//-(void)setFN:(NSManagedObject*
+
 @end
-/*
- for (NSManagedObject *info in self.fetchedPersons) {
- [self.persons addObject:[Person New:[info valueForKey:@"firstName"] LastName:[info valueForKey:@"lastName"] number:[info valueForKey:@"number"]]];
- }
-*/

@@ -12,19 +12,23 @@
 
 @interface FirstViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property NSArray *persons;
-@property (weak,nonatomic) NSManagedObjectContext *context;
-@property NSArray *fetchedPersons;
+@property NSManagedObjectContext *context;
 @property NSFetchRequest *fetchRequest;
 @property NSEntityDescription *entity;
 @end
 
 @implementation FirstViewController
 
+- (IBAction)clicked:(id)sender {
+    [Person New:@"Firstname" LastName:@"Lastname" number:@"+7(987)654-32-10" context:self.context];
+    [self update];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Person *p = [self.fetchedPersons objectAtIndex:indexPath.row];
+    Person *p = [self.persons objectAtIndex:indexPath.row];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Calling.." message: p.number delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
 }
@@ -39,7 +43,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"Delete contact: %@ %@",p.firstName, p.lastName);
         [self.context deleteObject:[self.persons objectAtIndex:indexPath.row]];
-        [self saveContext];
         [self update];
     }
 }
@@ -57,6 +60,9 @@
 
 - (void)update{
     NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
     self.persons = [self.context executeFetchRequest:self.fetchRequest error:&error];
     [self.table reloadData];
 }
@@ -64,40 +70,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view, typically from a nib.
+    self.navigBar.topItem.title = @"";
     
     self.context = [self managedObjectContext];
-    NSManagedObject *fperson = [NSEntityDescription
-                                       insertNewObjectForEntityForName:@"Person"
-                                       inManagedObjectContext:self.context];
-    [fperson setValue:@"Test Bank" forKey:@"firstName"];
-    [fperson setValue:@"Testville" forKey:@"lastName"];
-    [fperson setValue:@"Testland" forKey:@"number"];
     NSError *error;
     if (![self.context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
     self.fetchRequest = [[NSFetchRequest alloc] init];
-    self.entity = [NSEntityDescription
-                                   entityForName:@"Person" inManagedObjectContext:self.context];
+    self.entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:self.context];
     [self.fetchRequest setEntity:self.entity];
-//    self.fetchedPersons = [self.context executeFetchRequest:self.fetchRequest error:&error];
-        self.persons = [self.context executeFetchRequest:self.fetchRequest error:&error];
-    for (NSManagedObject *info in self.persons) {
-        NSLog(@"First name: %@", [info valueForKey:@"firstName"]);
-        NSLog(@"Last name: %@", [info valueForKey:@"lastName"]);
+    self.persons = [self.context executeFetchRequest:self.fetchRequest error:&error];
+    for (NSManagedObject *person in self.persons) {
+        NSLog(@"First name: %@", [person valueForKey:@"firstName"]);
+        NSLog(@"Last name: %@", [person valueForKey:@"lastName"]);
     }
-    // ------------
-    
-    self.navigBar.topItem.title = @"";
-//    Person *p = [Person New:@"Longfirstname" LastName:@"longlastname" number:@"+7(962)-513-75-80"];
-    
-//    self.persons = [NSMutableArray arrayWithObject:p];
-    
-//    for (NSManagedObject *info in self.fetchedPersons) {
-//        [self.persons addObject:[Person New:[info valueForKey:@"firstName"] LastName:[info valueForKey:@"lastName"] number:[info valueForKey:@"number"]]];
-//    }
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -24,7 +24,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Title" id="Ap7-7U-1tH">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NYK-SL-t0S"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NYK-SL-t0S" userLabel="Add">
+                                            <connections>
+                                                <action selector="clicked:" destination="9pv-A4-QxB" id="cGm-hI-EXt"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -93,6 +97,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="addButton" destination="NYK-SL-t0S" id="GZH-hZ-gZK"/>
                         <outlet property="navigBar" destination="PnL-yE-gOa" id="pYI-df-ogP"/>
                         <outlet property="table" destination="FoY-6R-EJP" id="aQP-HK-g2O"/>
                     </connections>
