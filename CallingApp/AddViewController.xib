@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController">
+            <connections>
+                <outlet property="firstName" destination="OSZ-IO-xOu" id="yai-2C-lXk"/>
+                <outlet property="lastName" destination="znI-Mk-u9l" id="oQN-ON-fc2"/>
+                <outlet property="number" destination="aWD-gD-qIq" id="Ncg-ly-t5a"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpU-vx-988">
+                    <rect key="frame" x="276" y="285" width="48" height="30"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="OKclicked:" destination="-1" eventType="touchUpInside" id="u4g-m2-SUk"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="znI-Mk-u9l">
+                    <rect key="frame" x="8" y="189" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="R2d-zC-kPr"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWD-gD-qIq">
+                    <rect key="frame" x="9" y="236" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="y0y-ys-pPU"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSZ-IO-xOu">
+                    <rect key="frame" x="9" y="145" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="FGD-lf-JlP"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aWD-gD-qIq" firstAttribute="width" secondItem="znI-Mk-u9l" secondAttribute="width" id="8Iq-Hq-p9t"/>
+                <constraint firstItem="znI-Mk-u9l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="8os-XE-oek"/>
+                <constraint firstItem="znI-Mk-u9l" firstAttribute="top" secondItem="OSZ-IO-xOu" secondAttribute="bottom" constant="14" id="9RQ-S7-ycE"/>
+                <constraint firstAttribute="centerX" secondItem="znI-Mk-u9l" secondAttribute="centerX" constant="-0.5" id="A8g-Sw-86s"/>
+                <constraint firstItem="znI-Mk-u9l" firstAttribute="width" secondItem="OSZ-IO-xOu" secondAttribute="width" id="BaH-se-mci"/>
+                <constraint firstItem="kpU-vx-988" firstAttribute="top" secondItem="aWD-gD-qIq" secondAttribute="bottom" constant="19" id="CfE-Yq-Gbp"/>
+                <constraint firstAttribute="trailing" secondItem="znI-Mk-u9l" secondAttribute="trailing" constant="8" id="LXV-Lh-kXl"/>
+                <constraint firstAttribute="centerX" secondItem="kpU-vx-988" secondAttribute="centerX" id="Snc-fk-JjC"/>
+                <constraint firstAttribute="centerX" secondItem="aWD-gD-qIq" secondAttribute="centerX" constant="-0.5" id="WBD-Nr-IRG"/>
+                <constraint firstItem="aWD-gD-qIq" firstAttribute="top" secondItem="znI-Mk-u9l" secondAttribute="bottom" constant="17" id="i2W-0f-pHm"/>
+                <constraint firstAttribute="centerX" secondItem="OSZ-IO-xOu" secondAttribute="centerX" constant="-0.5" id="i9s-n8-aAm"/>
+                <constraint firstAttribute="centerY" secondItem="kpU-vx-988" secondAttribute="centerY" id="mxq-t9-oDJ"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

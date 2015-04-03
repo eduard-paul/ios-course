@@ -11,6 +11,8 @@
 		8443DFA11ACE989400D13C5F /* Contacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8443DF9F1ACE989400D13C5F /* Contacts.xcdatamodeld */; };
 		847024601ACEF5D100FC0603 /* CallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8470245F1ACEF5D100FC0603 /* CallTableViewCell.m */; };
 		847024631ACF05A400FC0603 /* Call.m in Sources */ = {isa = PBXBuildFile; fileRef = 847024621ACF05A400FC0603 /* Call.m */; };
+		847024691ACF1CE500FC0603 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847024671ACF1CE500FC0603 /* AddViewController.m */; };
+		8470246A1ACF1CE500FC0603 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847024681ACF1CE500FC0603 /* AddViewController.xib */; };
 		84C194A81ACDAA0D00AF4096 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C194A71ACDAA0D00AF4096 /* ContactTableViewCell.m */; };
 		84C194AB1ACDAD0C00AF4096 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C194AA1ACDAD0C00AF4096 /* Person.m */; };
 		84C49E871ACD8BC6005AF267 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C49E861ACD8BC6005AF267 /* main.m */; };
@@ -40,6 +42,9 @@
 		8470245F1ACEF5D100FC0603 /* CallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallTableViewCell.m; sourceTree = "<group>"; };
 		847024611ACF05A400FC0603 /* Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
 		847024621ACF05A400FC0603 /* Call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Call.m; sourceTree = "<group>"; };
+		847024661ACF1CE500FC0603 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		847024671ACF1CE500FC0603 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		847024681ACF1CE500FC0603 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		84C194A61ACDAA0D00AF4096 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
 		84C194A71ACDAA0D00AF4096 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
 		84C194A91ACDAD0C00AF4096 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -108,6 +113,9 @@
 				84C49E8C1ACD8BC6005AF267 /* FirstViewController.m */,
 				84C49E8E1ACD8BC6005AF267 /* SecondViewController.h */,
 				84C49E8F1ACD8BC6005AF267 /* SecondViewController.m */,
+				847024661ACF1CE500FC0603 /* AddViewController.h */,
+				847024671ACF1CE500FC0603 /* AddViewController.m */,
+				847024681ACF1CE500FC0603 /* AddViewController.xib */,
 				8470245E1ACEF5D100FC0603 /* CallTableViewCell.h */,
 				8470245F1ACEF5D100FC0603 /* CallTableViewCell.m */,
 				84C49E911ACD8BC6005AF267 /* Main.storyboard */,
@@ -233,6 +241,7 @@
 			files = (
 				84C49E931ACD8BC6005AF267 /* Main.storyboard in Resources */,
 				84C49E981ACD8BC7005AF267 /* LaunchScreen.xib in Resources */,
+				8470246A1ACF1CE500FC0603 /* AddViewController.xib in Resources */,
 				84C49E951ACD8BC7005AF267 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847024691ACF1CE500FC0603 /* AddViewController.m in Sources */,
 				84C194AB1ACDAD0C00AF4096 /* Person.m in Sources */,
 				8443DFA11ACE989400D13C5F /* Contacts.xcdatamodeld in Sources */,
 				84C49E901ACD8BC6005AF267 /* SecondViewController.m in Sources */,

@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Person.h"
+
+@protocol ModalViewDelegate
+
+- (void)didReceiveFirst:(NSString *)name last:(NSString*)name andNum:(NSString*)num;
+
+@end
 
 @interface FirstViewController : UIViewController
+
+@property Person* recvPerson;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

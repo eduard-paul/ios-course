@@ -12,6 +12,7 @@
 
 @interface SecondViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigBar;
 @property NSArray *list;
 @property NSArray *calls;
 @property NSManagedObjectContext *context;
@@ -34,9 +35,22 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    Call *call = [self.calls objectAtIndex:[self.calls count]-indexPath.row-1];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"Delete call: %@ %@",call.firstName, call.date);
+        [self.context deleteObject:call];
+        [self update];
+    }
+}
+
 - (void)update{
     NSError *error;
-    
+    [self saveContext];
     self.calls = [self.context executeFetchRequest:self.fetchRequest error:&error];
     
     // Так и не разобрался в чем дело, но без следующего цикла не хочет обновлять таблицу
@@ -50,10 +64,16 @@
 -(void)viewDidAppear:(BOOL)animated {
     [self update];
 }
+- (IBAction)clean:(id)sender {
+    for (NSManagedObject *call in self.calls) {
+        [self.context deleteObject:call];
+    }
+    [self update];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigBar.topItem.title = @"Calls";
     self.context = [self managedObjectContext];
     NSError *error;
     if (![self.context save:&error]) {

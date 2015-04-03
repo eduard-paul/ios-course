@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "ContactTableViewCell.h"
+#import "AddViewController.h"
 #import "Person.h"
 #import "Call.h"
 
@@ -23,9 +24,18 @@
 
 @implementation FirstViewController
 
-- (IBAction)clicked:(id)sender {
-    [Person New:@"Firstname" LastName:@"Lastname" number:@"+7(987)654-32-10" context:self.context];
+@synthesize recvPerson;
+
+- (void)didReceiveFirst:(NSString *)first last:(NSString*)last andNum:(NSString*)num {
+    if (![num  isEqual: @""] && ![first  isEqual: @""]){
+    [Person New:first LastName:last number:num context:self.context];
     [self update];
+    }
+}
+
+- (IBAction)clicked:(id)sender {    AddViewController *addView = [[AddViewController alloc] init];
+    addView.delegate = self;
+    [self presentViewController:addView animated:YES completion:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -87,7 +97,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigBar.topItem.title = @"";
+    self.navigBar.topItem.title = @"Contacts";
     
     self.context = [self managedObjectContext];
     NSError *error;
