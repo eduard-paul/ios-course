@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Person : NSObject
+@interface Person : NSManagedObject
 
 @property NSString *firstName;
 @property NSString *lastName;
 @property NSString *number;
 
-+(Person*)New: (NSString*)first LastName: (NSString*)last number: (NSString*)num;
++(Person*)New: (NSString*)first LastName: (NSString*)last number: (NSString*)num context:(NSManagedObjectContext *)context;
 
 @end

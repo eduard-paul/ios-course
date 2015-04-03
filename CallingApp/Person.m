@@ -9,8 +9,14 @@
 #import "Person.h"
 
 @implementation Person
-+(Person*)New: (NSString*)first LastName: (NSString*)last number: (NSString*)num {
-    Person *person = [[super alloc] init];
+
+@synthesize firstName = _firstName;
+@synthesize lastName = _lastName;
+@synthesize number = _number;
+
++(Person*)New: (NSString*)first LastName: (NSString*)last number: (NSString*)num context:(NSManagedObjectContext *)context {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Challenges" inManagedObjectContext:context];
+    Person *person = [[Person alloc]initWithEntity:entity insertIntoManagedObjectContext:context];
     person.firstName = first;
     person.lastName = last;
     person.number = num;
