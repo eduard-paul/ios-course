@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		8443DF9E1ACE978500D13C5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443DF9D1ACE978500D13C5F /* CoreData.framework */; };
 		8443DFA11ACE989400D13C5F /* Contacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8443DF9F1ACE989400D13C5F /* Contacts.xcdatamodeld */; };
-		84C194A81ACDAA0D00AF4096 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C194A71ACDAA0D00AF4096 /* MyTableViewCell.m */; };
+		847024601ACEF5D100FC0603 /* CallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8470245F1ACEF5D100FC0603 /* CallTableViewCell.m */; };
+		847024631ACF05A400FC0603 /* Call.m in Sources */ = {isa = PBXBuildFile; fileRef = 847024621ACF05A400FC0603 /* Call.m */; };
+		84C194A81ACDAA0D00AF4096 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C194A71ACDAA0D00AF4096 /* ContactTableViewCell.m */; };
 		84C194AB1ACDAD0C00AF4096 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C194AA1ACDAD0C00AF4096 /* Person.m */; };
 		84C49E871ACD8BC6005AF267 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C49E861ACD8BC6005AF267 /* main.m */; };
 		84C49E8A1ACD8BC6005AF267 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C49E891ACD8BC6005AF267 /* AppDelegate.m */; };
@@ -34,8 +36,12 @@
 /* Begin PBXFileReference section */
 		8443DF9D1ACE978500D13C5F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8443DFA01ACE989400D13C5F /* Contacts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contacts.xcdatamodel; sourceTree = "<group>"; };
-		84C194A61ACDAA0D00AF4096 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
-		84C194A71ACDAA0D00AF4096 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		8470245E1ACEF5D100FC0603 /* CallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallTableViewCell.h; sourceTree = "<group>"; };
+		8470245F1ACEF5D100FC0603 /* CallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallTableViewCell.m; sourceTree = "<group>"; };
+		847024611ACF05A400FC0603 /* Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
+		847024621ACF05A400FC0603 /* Call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Call.m; sourceTree = "<group>"; };
+		84C194A61ACDAA0D00AF4096 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		84C194A71ACDAA0D00AF4096 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
 		84C194A91ACDAD0C00AF4096 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		84C194AA1ACDAD0C00AF4096 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		84C49E811ACD8BC5005AF267 /* CallingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,13 +108,17 @@
 				84C49E8C1ACD8BC6005AF267 /* FirstViewController.m */,
 				84C49E8E1ACD8BC6005AF267 /* SecondViewController.h */,
 				84C49E8F1ACD8BC6005AF267 /* SecondViewController.m */,
+				8470245E1ACEF5D100FC0603 /* CallTableViewCell.h */,
+				8470245F1ACEF5D100FC0603 /* CallTableViewCell.m */,
 				84C49E911ACD8BC6005AF267 /* Main.storyboard */,
 				84C194A91ACDAD0C00AF4096 /* Person.h */,
 				84C194AA1ACDAD0C00AF4096 /* Person.m */,
 				8443DF9F1ACE989400D13C5F /* Contacts.xcdatamodeld */,
+				847024611ACF05A400FC0603 /* Call.h */,
+				847024621ACF05A400FC0603 /* Call.m */,
 				84C49E941ACD8BC7005AF267 /* Images.xcassets */,
-				84C194A61ACDAA0D00AF4096 /* MyTableViewCell.h */,
-				84C194A71ACDAA0D00AF4096 /* MyTableViewCell.m */,
+				84C194A61ACDAA0D00AF4096 /* ContactTableViewCell.h */,
+				84C194A71ACDAA0D00AF4096 /* ContactTableViewCell.m */,
 				84C49E961ACD8BC7005AF267 /* LaunchScreen.xib */,
 				84C49E841ACD8BC6005AF267 /* Supporting Files */,
 			);
@@ -244,10 +254,12 @@
 				84C194AB1ACDAD0C00AF4096 /* Person.m in Sources */,
 				8443DFA11ACE989400D13C5F /* Contacts.xcdatamodeld in Sources */,
 				84C49E901ACD8BC6005AF267 /* SecondViewController.m in Sources */,
+				847024631ACF05A400FC0603 /* Call.m in Sources */,
 				84C49E8A1ACD8BC6005AF267 /* AppDelegate.m in Sources */,
 				84C49E8D1ACD8BC6005AF267 /* FirstViewController.m in Sources */,
+				847024601ACEF5D100FC0603 /* CallTableViewCell.m in Sources */,
 				84C49E871ACD8BC6005AF267 /* main.m in Sources */,
-				84C194A81ACDAA0D00AF4096 /* MyTableViewCell.m in Sources */,
+				84C194A81ACDAA0D00AF4096 /* ContactTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

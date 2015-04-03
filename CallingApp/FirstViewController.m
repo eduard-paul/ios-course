@@ -7,8 +7,9 @@
 //
 
 #import "FirstViewController.h"
-#import "MyTableViewCell.h"
+#import "ContactTableViewCell.h"
 #import "Person.h"
+#import "Call.h"
 
 @interface FirstViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigBar;
@@ -31,6 +32,21 @@
     Person *p = [self.persons objectAtIndex:indexPath.row];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Calling.." message: p.number delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
+    NSDate *currentDate = [NSDate date];
+    [Call New:p.firstName LastName:p.lastName number:p.number date:currentDate context:self.context];
+    [self saveContext];
+    
+//     Call *call = [NSEntityDescription
+//                                       insertNewObjectForEntityForName:@"Call"
+//                                       inManagedObjectContext:self.context];
+//    [call setValue:@"Test Bank" forKey:@"firstName"];
+//    [call setValue:@"Testville" forKey:@"lastName"];
+//    [call setValue:@"Testland" forKey:@"number"];
+//    [call setValue:[NSDate date] forKey:@"time"];
+//    NSError *error;
+//    if (![self.context save:&error]) {
+//        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//    }
 }
 
 
@@ -53,16 +69,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellID = @"CellID";
-    MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
+    ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
     [cell setPerson:[self.persons objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)update{
     NSError *error;
-    if (![self.context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
+//    if (![self.context save:&error]) {
+//        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//    }
+    [self saveContext];
     self.persons = [self.context executeFetchRequest:self.fetchRequest error:&error];
     [self.table reloadData];
 }
