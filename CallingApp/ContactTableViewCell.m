@@ -15,11 +15,9 @@
 }
 
 -(void)setPerson:(Person *)p{
-    self.firstName.text = p.firstName;
-    self.lastName.text = p.lastName;
-    self.number.text = p.number;
-    self.number.numberOfLines = 0;
-    [self.number sizeToFit];
+    self.firstName.text = [p valueForKey:@"firstName"];
+    self.lastName.text = [p valueForKey:@"lastName"];
+    self.number.text = [p valueForKey:@"number"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

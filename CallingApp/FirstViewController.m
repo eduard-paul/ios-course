@@ -45,18 +45,6 @@
     NSDate *currentDate = [NSDate date];
     [Call New:p.firstName LastName:p.lastName number:p.number date:currentDate context:self.context];
     [self saveContext];
-    
-//     Call *call = [NSEntityDescription
-//                                       insertNewObjectForEntityForName:@"Call"
-//                                       inManagedObjectContext:self.context];
-//    [call setValue:@"Test Bank" forKey:@"firstName"];
-//    [call setValue:@"Testville" forKey:@"lastName"];
-//    [call setValue:@"Testland" forKey:@"number"];
-//    [call setValue:[NSDate date] forKey:@"time"];
-//    NSError *error;
-//    if (![self.context save:&error]) {
-//        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-//    }
 }
 
 
@@ -86,9 +74,7 @@
 
 - (void)update{
     NSError *error;
-//    if (![self.context save:&error]) {
-//        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-//    }
+
     [self saveContext];
     self.persons = [self.context executeFetchRequest:self.fetchRequest error:&error];
     [self.table reloadData];
@@ -109,11 +95,6 @@
     self.entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:self.context];
     [self.fetchRequest setEntity:self.entity];
     self.persons = [self.context executeFetchRequest:self.fetchRequest error:&error];
-    for (NSManagedObject *person in self.persons) {
-        NSLog(@"First name: %@", [person valueForKey:@"firstName"]);
-        NSLog(@"Last name: %@", [person valueForKey:@"lastName"]);
-    }
-
 }
 
 - (void)didReceiveMemoryWarning {

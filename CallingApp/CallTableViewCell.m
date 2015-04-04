@@ -22,7 +22,7 @@
 }
 
 -(void)setWithCall:(Call*)call {
-    [self setFirst:call.firstName last:call.lastName num:call.number andDate:call.date];
+    [self setFirst:[call valueForKey:@"firstName"] last:[call valueForKey:@"lastName"] num:[call valueForKey:@"number"] andDate:[call valueForKey:@"date"]];
 }
 
 - (void)awakeFromNib {

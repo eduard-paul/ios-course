@@ -52,12 +52,6 @@
     NSError *error;
     [self saveContext];
     self.calls = [self.context executeFetchRequest:self.fetchRequest error:&error];
-    
-    // Так и не разобрался в чем дело, но без следующего цикла не хочет обновлять таблицу
-    for (NSManagedObject *call in self.calls) {
-       [call valueForKey:@"date"];
-    }
-    
     [self.table reloadData];
 }
 
@@ -84,11 +78,6 @@
     self.entity = [NSEntityDescription entityForName:@"Call" inManagedObjectContext:self.context];
     [self.fetchRequest setEntity:self.entity];
     self.calls = [self.context executeFetchRequest:self.fetchRequest error:&error];
-    
-    for (NSManagedObject *call in self.calls) {
-        NSLog(@"Date: %@", [call valueForKey:@"date"]);
-        NSLog(@"Last name: %@", [call valueForKey:@"lastName"]);
-    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
